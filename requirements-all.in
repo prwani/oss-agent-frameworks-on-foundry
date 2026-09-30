@@ -1,0 +1,39 @@
+# Shared Python 3.13 environment for Microsoft Agent Framework, LangChain, and
+# LangGraph. CrewAI is isolated in crewai/.venv because its OpenAI <3
+# requirement conflicts with azure-ai-projects >=2.6.1.
+
+# Microsoft Agent Framework samples
+agent-framework-azure-ai-search
+agent-framework-declarative
+agent-framework-foundry
+agent-framework-foundry-hosting>=1.0.0a260630
+agent-framework-monty
+agent-framework-openai
+
+# Foundry hosting and Azure integrations
+azure-ai-agentserver-responses>=2.0.0,<3
+azure-ai-projects>=2.6.1,<3
+azure-cosmos>=4.9.0
+azure-identity>=1.25.0
+azure-monitor-opentelemetry>=1.8.0
+azure-search-documents>=11.6.0
+
+# LangChain and LangGraph
+langchain>=1.2.12,<2
+langchain-azure-ai[hosting,opentelemetry]>=1.2.10,<2
+langchain-mcp-adapters>=0.3.2
+langchain-openai>=1.1,<2
+langgraph>=1.0.0
+langgraph-checkpoint-cosmos
+langgraph-checkpoint-sqlite>=3.0.0
+
+# Shared runtime dependencies
+aiohttp
+aiosqlite>=0.20.0
+httpx>=0.28.0
+openai>=1.75.0
+opentelemetry-api>=1.29.0
+opentelemetry-exporter-otlp-proto-http>=1.38.0
+pydantic>=2.10.0
+pydantic-monty>=0.0.23
+python-dotenv>=1.1.0

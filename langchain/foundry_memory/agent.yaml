@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/microsoft/AgentSchema/refs/heads/main/schemas/v1.0/ContainerAgent.yaml
+kind: hosted
+name: langchain-foundry-memory-responses
+protocols:
+  - protocol: responses
+    version: 2.0.0
+resources:
+  cpu: '0.5'
+  memory: '1Gi'
+environment_variables:
+  - name: FOUNDRY_PROJECT_ENDPOINT
+    value: ${FOUNDRY_PROJECT_ENDPOINT}
+  - name: AZURE_AI_MODEL_DEPLOYMENT_NAME
+    value: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+  - name: MEMORY_STORE_NAME
+    value: ${MEMORY_STORE_NAME}
+  - name: MEMORY_SCOPE
+    value: ${MEMORY_SCOPE}

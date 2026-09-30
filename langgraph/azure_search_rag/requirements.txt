@@ -1,0 +1,6 @@
+langchain-azure-ai[hosting]>=1.2.10
+langchain>=1.2.0
+langgraph>=1.0.0
+azure-identity>=1.25.0
+python-dotenv>=1.1.0
+azure-search-documents>=11.6.0

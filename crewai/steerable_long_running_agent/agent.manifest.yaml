@@ -1,0 +1,13 @@
+name: crewai-steerable-long-running-agent-responses
+description: CrewAI steerable long running agent sample using the Foundry Responses adapter.
+template:
+  name: crewai-steerable-long-running-agent-responses
+  kind: hosted
+  protocols:
+    - protocol: responses
+      version: 2.0.0
+  environment_variables:
+    - name: FOUNDRY_PROJECT_ENDPOINT
+      value: "{{FOUNDRY_PROJECT_ENDPOINT}}"
+    - name: AZURE_AI_MODEL_DEPLOYMENT_NAME
+      value: "{{AZURE_AI_MODEL_DEPLOYMENT_NAME}}"

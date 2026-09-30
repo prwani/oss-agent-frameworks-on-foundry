@@ -1,0 +1,20 @@
+protocol: responses
+protocol_version: 2.0.0
+framework: LangChain create_agent / LangGraph
+host: langchain_azure_ai.agents.hosting.ResponsesHostServer
+samples:
+  basic: {fidelity: exact, resources: [foundry_project, model_deployment]}
+  tools: {fidelity: exact, resources: [foundry_project, model_deployment]}
+  mcp: {fidelity: exact, resources: [foundry_project, model_deployment, remote_mcp]}
+  foundry_toolbox: {fidelity: exact, resources: [foundry_project, model_deployment, toolbox]}
+  workflows: {fidelity: equivalent, note: "Native StateGraph replaces Agent Framework WorkflowBuilder."}
+  files: {fidelity: adapter, note: "Constrained filesystem tools; input_file passthrough is not yet available in the host converter."}
+  observability: {fidelity: exact, resources: [foundry_project, model_deployment, telemetry_destination]}
+  azure_search_rag: {fidelity: equivalent, resources: [foundry_project, model_deployment, azure_ai_search], note: "Direct SearchClient tool replaces Agent Framework context provider."}
+  foundry_memory: {fidelity: preview, resources: [foundry_project, model_deployment, memory_store], note: "Uses AzureAIMemoryMiddleware; the LangChain API currently requires an explicit fixed MEMORY_SCOPE rather than the Agent Framework host's per-request {{$userId}} substitution."}
+  monty_codeact: {fidelity: adapter, resources: [foundry_project, model_deployment], note: "A local Monty sandbox tool replaces Agent Framework MontyCodeActProvider."}
+  foundry_toolbox_mcp_skills: {fidelity: adapter, resources: [foundry_project, model_deployment, toolbox], note: "MCP tools are native; SEP-2640 skill discovery is represented by explicit local skill loading."}
+  custom_storage: {fidelity: alternative, resources: [foundry_project, model_deployment], note: "Hosted deployment uses Foundry-managed conversation state because policy blocks hosted-agent access to Cosmos; Cosmos and SQLite remain explicit non-hosted backends."}
+  resilient_long_running_workflow: {fidelity: preview, resources: [foundry_project, model_deployment], note: "Foundry checkpoint saver when hosted; SQLite locally."}
+  steerable_long_running_agent: {fidelity: preview, resources: [foundry_project, model_deployment], note: "Requires agentserver steerable_conversations preview support."}
+  using_deployed_agent.py: {fidelity: equivalent, resources: [foundry_project, deployed_agent], note: "Uses the Azure AI Projects OpenAI Responses client rather than Agent Framework FoundryAgent sessions."}

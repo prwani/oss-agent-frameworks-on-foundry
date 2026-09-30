@@ -1,0 +1,15 @@
+name: crewai-foundry-memory-responses
+description: CrewAI foundry memory sample using the Foundry Responses adapter.
+template:
+  name: crewai-foundry-memory-responses
+  kind: hosted
+  protocols:
+    - protocol: responses
+      version: 2.0.0
+  environment_variables:
+    - name: FOUNDRY_PROJECT_ENDPOINT
+      value: "{{FOUNDRY_PROJECT_ENDPOINT}}"
+    - name: AZURE_AI_MODEL_DEPLOYMENT_NAME
+      value: "{{AZURE_AI_MODEL_DEPLOYMENT_NAME}}"
+    - name: MEMORY_STORE_NAME
+      value: "{{MEMORY_STORE_NAME}}"

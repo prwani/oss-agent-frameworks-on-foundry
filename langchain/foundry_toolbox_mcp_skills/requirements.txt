@@ -1,0 +1,7 @@
+langchain>=1.2.12,<2
+langchain-openai>=1.1,<2
+langchain-azure-ai[hosting,opentelemetry]>=1.2.10,<2
+azure-ai-projects>=2.2.0,<3
+azure-identity>=1.20
+python-dotenv>=1.0
+langchain-mcp-adapters>=0.2

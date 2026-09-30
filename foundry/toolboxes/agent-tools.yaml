@@ -1,0 +1,11 @@
+description: Shared low-cost toolbox for OSS hosted-agent compatibility tests
+tools:
+  - type: code_interpreter
+    name: code_interpreter
+    container:
+      type: auto
+  - type: mcp
+    name: azure_specs
+    server_label: azure_specs
+    server_url: https://gitmcp.io/Azure/azure-rest-api-specs
+    require_approval: never

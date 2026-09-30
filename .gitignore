@@ -1,0 +1,48 @@
+# Python environments and generated files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+
+# Azure and Foundry local state
+.azure/
+**/.azure/
+.foundry/results/
+
+# Runtime state and logs
+*.log
+*.sqlite
+*.sqlite3
+*.db
+**/state/
+**/checkpoints/
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+
+# Local deployment workspaces and ad-hoc validation artifacts
+/maf-basic-responses/
+/maf-tools-responses/
+/AUDIT_SUMMARY.md
+/README_AUDIT.md
+/QUICK_REFERENCE.txt
+/VALIDATION_AUDIT.txt
+/test_all_6_*.py
+/test_final_verification.py
+/test_fix_1.py
+/test_langgraph_fix.py
+/test_single.py
+/verify_changes.sh
+/verify_unchanged.py
+**/AGENTS.md

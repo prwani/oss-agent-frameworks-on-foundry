@@ -1,0 +1,923 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: oss-agent-frameworks
+services:
+  langchain-basic-responses:
+    project: ./langchain/basic
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langchain-basic-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langgraph-basic-responses:
+    project: ./langgraph/basic
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langgraph-basic-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  crewai-basic-responses:
+    project: ./crewai/basic
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: crewai-basic-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langchain-tools-responses:
+    project: ./langchain/tools
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langchain-tools-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langchain-mcp-responses:
+    project: ./langchain/mcp
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+      MCP_SERVER_URL: https://gitmcp.io/Azure/azure-rest-api-specs
+      GITHUB_PAT: public-mcp-placeholder
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langchain-mcp-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langchain-foundry-toolbox-responses:
+    project: ./langchain/foundry_toolbox
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+      TOOLBOX_NAME: ${TOOLBOX_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langchain-foundry-toolbox-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langchain-workflows-responses:
+    project: ./langchain/workflows
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langchain-workflows-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langchain-files-responses:
+    project: ./langchain/files
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+      DATA_DIR: ./resources
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langchain-files-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langchain-observability-responses:
+    project: ./langchain/observability
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langchain-observability-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langchain-azure-search-rag-responses:
+    project: ./langchain/azure_search_rag
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+      AZURE_SEARCH_ENDPOINT: ${AZURE_SEARCH_ENDPOINT}
+      AZURE_SEARCH_INDEX_NAME: ${AZURE_SEARCH_INDEX_NAME}
+      AZURE_SEARCH_SELECT: content,title
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langchain-azure-search-rag-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langchain-foundry-memory-responses:
+    project: ./langchain/foundry_memory
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+      MEMORY_STORE_NAME: ${MEMORY_STORE_NAME}
+      MEMORY_SCOPE: ${MEMORY_SCOPE}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langchain-foundry-memory-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langchain-monty-codeact-responses:
+    project: ./langchain/monty_codeact
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langchain-monty-codeact-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langchain-foundry-toolbox-mcp-skills-responses:
+    project: ./langchain/foundry_toolbox_mcp_skills
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+      TOOLBOX_NAME: ${SKILLS_TOOLBOX_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langchain-foundry-toolbox-mcp-skills-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langchain-resilient-long-running-workflow-responses:
+    project: ./langchain/resilient_long_running_workflow
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langchain-resilient-long-running-workflow-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langchain-steerable-long-running-agent-responses:
+    project: ./langchain/steerable_long_running_agent
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langchain-steerable-long-running-agent-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langgraph-tools-responses:
+    project: ./langgraph/tools
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langgraph-tools-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langgraph-mcp-responses:
+    project: ./langgraph/mcp
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+      MCP_SERVER_URL: https://gitmcp.io/Azure/azure-rest-api-specs
+      MCP_AUTH_TOKEN: public-mcp-placeholder
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langgraph-mcp-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langgraph-foundry-toolbox-responses:
+    project: ./langgraph/foundry_toolbox
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+      TOOLBOX_NAME: ${TOOLBOX_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langgraph-foundry-toolbox-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langgraph-workflows-responses:
+    project: ./langgraph/workflows
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langgraph-workflows-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langgraph-files-responses:
+    project: ./langgraph/files
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+      DATA_DIR: ./resources
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langgraph-files-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langgraph-observability-responses:
+    project: ./langgraph/observability
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langgraph-observability-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langgraph-azure-search-rag-responses:
+    project: ./langgraph/azure_search_rag
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+      AZURE_SEARCH_ENDPOINT: ${AZURE_SEARCH_ENDPOINT}
+      AZURE_SEARCH_INDEX_NAME: ${AZURE_SEARCH_INDEX_NAME}
+      AZURE_SEARCH_SELECT: content,title
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langgraph-azure-search-rag-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langgraph-foundry-memory-responses:
+    project: ./langgraph/foundry_memory
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+      MEMORY_STORE_NAME: ${MEMORY_STORE_NAME}
+      MEMORY_SCOPE: ${MEMORY_SCOPE}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langgraph-foundry-memory-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langgraph-monty-codeact-responses:
+    project: ./langgraph/monty_codeact
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langgraph-monty-codeact-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langgraph-foundry-toolbox-mcp-skills-responses:
+    project: ./langgraph/foundry_toolbox_mcp_skills
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+      TOOLBOX_NAME: ${SKILLS_TOOLBOX_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langgraph-foundry-toolbox-mcp-skills-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langgraph-resilient-long-running-workflow-responses:
+    project: ./langgraph/resilient_long_running_workflow
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langgraph-resilient-long-running-workflow-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langgraph-steerable-long-running-agent-responses:
+    project: ./langgraph/steerable_long_running_agent
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langgraph-steerable-long-running-agent-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  crewai-tools-responses:
+    project: ./crewai/tools
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: crewai-tools-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  crewai-mcp-responses:
+    project: ./crewai/mcp
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+      MCP_SERVER_URL: https://gitmcp.io/Azure/azure-rest-api-specs
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: crewai-mcp-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  crewai-foundry-toolbox-responses:
+    project: ./crewai/foundry_toolbox
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+      TOOLBOX_NAME: ${TOOLBOX_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: crewai-foundry-toolbox-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  crewai-workflows-responses:
+    project: ./crewai/workflows
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: crewai-workflows-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  crewai-files-responses:
+    project: ./crewai/files
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+      AGENT_FILES_ROOT: ./resources
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: crewai-files-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  crewai-observability-responses:
+    project: ./crewai/observability
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: crewai-observability-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  crewai-azure-search-rag-responses:
+    project: ./crewai/azure_search_rag
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+      AZURE_SEARCH_ENDPOINT: ${AZURE_SEARCH_ENDPOINT}
+      AZURE_SEARCH_INDEX_NAME: ${AZURE_SEARCH_INDEX_NAME}
+      AZURE_SEARCH_SELECT: content,title
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: crewai-azure-search-rag-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  crewai-foundry-memory-responses:
+    project: ./crewai/foundry_memory
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+      MEMORY_STORE_NAME: ${MEMORY_STORE_NAME}
+      MEMORY_SCOPE: ${MEMORY_SCOPE}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: crewai-foundry-memory-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  crewai-monty-codeact-responses:
+    project: ./crewai/monty_codeact
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: crewai-monty-codeact-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  crewai-foundry-toolbox-mcp-skills-responses:
+    project: ./crewai/foundry_toolbox_mcp_skills
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+      TOOLBOX_NAME: ${SKILLS_TOOLBOX_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: crewai-foundry-toolbox-mcp-skills-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  crewai-resilient-long-running-workflow-responses:
+    project: ./crewai/resilient_long_running_workflow
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: crewai-resilient-long-running-workflow-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  crewai-steerable-long-running-agent-responses:
+    project: ./crewai/steerable_long_running_agent
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: crewai-steerable-long-running-agent-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langchain-custom-storage-responses:
+    project: ./langchain/custom_storage
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+      USE_FOUNDRY_STORAGE: "true"
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langchain-custom-storage-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  langgraph-custom-storage-responses:
+    project: ./langgraph/custom_storage
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+      USE_FOUNDRY_STORAGE: "true"
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: langgraph-custom-storage-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  crewai-custom-storage-responses:
+    project: ./crewai/custom_storage
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+      USE_FOUNDRY_STORAGE: "true"
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '0.25'
+        memory: 0.5Gi
+    kind: hosted
+    name: crewai-custom-storage-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  foundry-project:
+    host: azure.ai.project
+    endpoint: ${AZURE_AI_PROJECT_ENDPOINT}
+infra:
+  provider: microsoft.foundry

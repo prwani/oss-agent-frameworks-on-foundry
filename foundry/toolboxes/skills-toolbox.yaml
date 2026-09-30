@@ -1,0 +1,9 @@
+description: Shared toolbox for OSS hosted-agent MCP skills tests
+skills:
+  - name: support-style
+  - name: escalation-policy
+tools:
+  - type: code_interpreter
+    name: code_interpreter
+    container:
+      type: auto

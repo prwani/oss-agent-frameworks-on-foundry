@@ -1,0 +1,69 @@
+schema_version: 1
+protocol: responses
+protocol_version: 2.0.0
+hosting:
+  package: langchain-azure-ai[hosting]
+  server: ResponsesHostServer
+common_required_resources:
+  - Microsoft Foundry project
+  - Responses-capable model deployment
+samples:
+  basic:
+    support: native
+    required_resources: []
+  tools:
+    support: native
+    required_resources: []
+    notes: LangGraph interrupt maps approvals to Responses approval items.
+  mcp:
+    support: native
+    required_resources: [remote MCP server, MCP bearer token]
+  foundry_toolbox:
+    support: native
+    required_resources: [preconfigured Foundry Toolbox]
+  workflows:
+    support: native
+    required_resources: []
+  files:
+    support: alternative
+    required_resources: [mounted or local data directory]
+    limitation: Responses input_file blocks are not currently passed through by the LangGraph host converter.
+    deployment_alternative: Mount or package files and expose bounded filesystem tools.
+  observability:
+    support: native
+    required_resources: [Foundry-managed Application Insights or OTLP collector]
+  azure_search_rag:
+    support: adapter
+    required_resources: [Azure AI Search service, existing populated index]
+    notes: Uses an Azure SDK retrieval tool rather than Agent Framework context providers.
+  foundry_memory:
+    support: native
+    maturity: preview
+    required_resources: [precreated Foundry Memory store]
+  monty_codeact:
+    support: adapter
+    required_resources: []
+    limitation: LangGraph has no Agent Framework Monty CodeAct provider.
+    deployment_alternative: Expose a bounded pydantic-monty sandbox as a LangChain tool.
+  foundry_toolbox_mcp_skills:
+    support: adapter
+    maturity: preview
+    required_resources: [Foundry Toolbox exposing SEP-2640 skill resources]
+    limitation: Skills are injected through a load_skill tool and system index, not Agent Framework context-provider lifecycle.
+  custom_storage:
+    support: alternative
+    required_resources: [Foundry State Store when hosted, writable SQLite path locally]
+    notes: Demonstrates ConversationChainStoreProtocol locally; hosted deployment uses Foundry-managed state because container-local SQLite is not durable.
+  resilient_long_running_workflow:
+    support: native
+    required_resources: []
+    hosted_resources: [Foundry State Store]
+    local_resources: [SQLite checkpoint file]
+  steerable_long_running_agent:
+    support: native
+    required_resources: []
+client:
+  using_deployed_agent.py:
+    support: native_sdk
+    required_resources: [deployed hosted agent]
+    maturity: preview

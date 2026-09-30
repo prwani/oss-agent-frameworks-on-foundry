@@ -1,0 +1,19 @@
+protocol: responses
+protocolVersion: 2.0.0
+framework: CrewAI
+host: azure-ai-agentserver-responses
+samples:
+  basic: {status: supported}
+  tools: {status: supported-with-limitation, limitation: no protocol approval bridge}
+  mcp: {status: supported-with-limitation, limitation: unattended streamable HTTP MCP}
+  foundry_toolbox: {status: supported-with-limitation, limitation: no approval or elicitation bridge}
+  workflows: {status: supported}
+  files: {status: supported-with-limitation, limitation: file_id needs AGENT_FILES_ROOT}
+  observability: {status: supported}
+  azure_search_rag: {status: supported}
+  foundry_memory: {status: preview}
+  monty_codeact: {status: supported-with-limitation, limitation: explicit Monty tool}
+  foundry_toolbox_mcp_skills: {status: supported-with-limitation, limitation: local skills instead of SEP-2640 provider}
+  custom_storage: {status: alternative, limitation: hosted deployment uses Foundry-managed conversation history; Cosmos and SQLite remain explicit application-level backends}
+  resilient_long_running_workflow: {status: supported-with-limitation, limitation: phase checkpoints}
+  steerable_long_running_agent: {status: supported-with-limitation, limitation: cannot cancel synchronous CrewAI inference}
