@@ -916,6 +916,342 @@ services:
     protocols:
     - protocol: responses
       version: 2.0.0
+  claude-basic-responses:
+    project: ./claude/basic
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      CLAUDE_MODEL_DEPLOYMENT_NAME: ${CLAUDE_MODEL_DEPLOYMENT_NAME}
+      ANTHROPIC_FOUNDRY_RESOURCE: ${ANTHROPIC_FOUNDRY_RESOURCE}
+      CLAUDE_AGENT_WORKSPACE: /tmp/claude-agent-workspace
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '1'
+        memory: 2Gi
+    kind: hosted
+    name: claude-basic-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  claude-tools-responses:
+    project: ./claude/tools
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      CLAUDE_MODEL_DEPLOYMENT_NAME: ${CLAUDE_MODEL_DEPLOYMENT_NAME}
+      ANTHROPIC_FOUNDRY_RESOURCE: ${ANTHROPIC_FOUNDRY_RESOURCE}
+      CLAUDE_AGENT_WORKSPACE: /tmp/claude-agent-workspace
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '1'
+        memory: 2Gi
+    kind: hosted
+    name: claude-tools-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  claude-mcp-responses:
+    project: ./claude/mcp
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      CLAUDE_MODEL_DEPLOYMENT_NAME: ${CLAUDE_MODEL_DEPLOYMENT_NAME}
+      ANTHROPIC_FOUNDRY_RESOURCE: ${ANTHROPIC_FOUNDRY_RESOURCE}
+      CLAUDE_AGENT_WORKSPACE: /tmp/claude-agent-workspace
+      MCP_SERVER_URL: ${MCP_SERVER_URL}
+      MCP_AUTH_TOKEN: ${MCP_AUTH_TOKEN}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '1'
+        memory: 2Gi
+    kind: hosted
+    name: claude-mcp-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  claude-foundry-toolbox-responses:
+    project: ./claude/foundry_toolbox
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      CLAUDE_MODEL_DEPLOYMENT_NAME: ${CLAUDE_MODEL_DEPLOYMENT_NAME}
+      ANTHROPIC_FOUNDRY_RESOURCE: ${ANTHROPIC_FOUNDRY_RESOURCE}
+      CLAUDE_AGENT_WORKSPACE: /tmp/claude-agent-workspace
+      FOUNDRY_PROJECT_ENDPOINT: ${AZURE_AI_PROJECT_ENDPOINT}
+      TOOLBOX_NAME: ${TOOLBOX_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '1'
+        memory: 2Gi
+    kind: hosted
+    name: claude-foundry-toolbox-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  claude-workflows-responses:
+    project: ./claude/workflows
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      CLAUDE_MODEL_DEPLOYMENT_NAME: ${CLAUDE_MODEL_DEPLOYMENT_NAME}
+      ANTHROPIC_FOUNDRY_RESOURCE: ${ANTHROPIC_FOUNDRY_RESOURCE}
+      CLAUDE_AGENT_WORKSPACE: /tmp/claude-agent-workspace
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '1'
+        memory: 2Gi
+    kind: hosted
+    name: claude-workflows-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  claude-files-responses:
+    project: ./claude/files
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      CLAUDE_MODEL_DEPLOYMENT_NAME: ${CLAUDE_MODEL_DEPLOYMENT_NAME}
+      ANTHROPIC_FOUNDRY_RESOURCE: ${ANTHROPIC_FOUNDRY_RESOURCE}
+      CLAUDE_AGENT_WORKSPACE: /tmp/claude-agent-workspace
+      DATA_DIR: /app/data
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '1'
+        memory: 2Gi
+    kind: hosted
+    name: claude-files-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  claude-observability-responses:
+    project: ./claude/observability
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      CLAUDE_MODEL_DEPLOYMENT_NAME: ${CLAUDE_MODEL_DEPLOYMENT_NAME}
+      ANTHROPIC_FOUNDRY_RESOURCE: ${ANTHROPIC_FOUNDRY_RESOURCE}
+      CLAUDE_AGENT_WORKSPACE: /tmp/claude-agent-workspace
+      APPLICATIONINSIGHTS_CONNECTION_STRING: ${APPLICATIONINSIGHTS_CONNECTION_STRING}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '1'
+        memory: 2Gi
+    kind: hosted
+    name: claude-observability-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  claude-azure-search-rag-responses:
+    project: ./claude/azure_search_rag
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      CLAUDE_MODEL_DEPLOYMENT_NAME: ${CLAUDE_MODEL_DEPLOYMENT_NAME}
+      ANTHROPIC_FOUNDRY_RESOURCE: ${ANTHROPIC_FOUNDRY_RESOURCE}
+      CLAUDE_AGENT_WORKSPACE: /tmp/claude-agent-workspace
+      AZURE_SEARCH_ENDPOINT: ${AZURE_SEARCH_ENDPOINT}
+      AZURE_SEARCH_INDEX_NAME: ${AZURE_SEARCH_INDEX_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '1'
+        memory: 2Gi
+    kind: hosted
+    name: claude-azure-search-rag-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  claude-foundry-memory-responses:
+    project: ./claude/foundry_memory
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      CLAUDE_MODEL_DEPLOYMENT_NAME: ${CLAUDE_MODEL_DEPLOYMENT_NAME}
+      ANTHROPIC_FOUNDRY_RESOURCE: ${ANTHROPIC_FOUNDRY_RESOURCE}
+      CLAUDE_AGENT_WORKSPACE: /tmp/claude-agent-workspace
+      FOUNDRY_PROJECT_ENDPOINT: ${AZURE_AI_PROJECT_ENDPOINT}
+      MEMORY_STORE_NAME: ${MEMORY_STORE_NAME}
+      MEMORY_SCOPE: ${MEMORY_SCOPE}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '1'
+        memory: 2Gi
+    kind: hosted
+    name: claude-foundry-memory-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  claude-monty-codeact-responses:
+    project: ./claude/monty_codeact
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      CLAUDE_MODEL_DEPLOYMENT_NAME: ${CLAUDE_MODEL_DEPLOYMENT_NAME}
+      ANTHROPIC_FOUNDRY_RESOURCE: ${ANTHROPIC_FOUNDRY_RESOURCE}
+      CLAUDE_AGENT_WORKSPACE: /tmp/claude-agent-workspace
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '1'
+        memory: 2Gi
+    kind: hosted
+    name: claude-monty-codeact-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  claude-foundry-toolbox-mcp-skills-responses:
+    project: ./claude/foundry_toolbox_mcp_skills
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      CLAUDE_MODEL_DEPLOYMENT_NAME: ${CLAUDE_MODEL_DEPLOYMENT_NAME}
+      ANTHROPIC_FOUNDRY_RESOURCE: ${ANTHROPIC_FOUNDRY_RESOURCE}
+      CLAUDE_AGENT_WORKSPACE: /tmp/claude-agent-workspace
+      FOUNDRY_PROJECT_ENDPOINT: ${AZURE_AI_PROJECT_ENDPOINT}
+      TOOLBOX_NAME: ${SKILLS_TOOLBOX_NAME}
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '1'
+        memory: 2Gi
+    kind: hosted
+    name: claude-foundry-toolbox-mcp-skills-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  claude-resilient-long-running-workflow-responses:
+    project: ./claude/resilient_long_running_workflow
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      CLAUDE_MODEL_DEPLOYMENT_NAME: ${CLAUDE_MODEL_DEPLOYMENT_NAME}
+      ANTHROPIC_FOUNDRY_RESOURCE: ${ANTHROPIC_FOUNDRY_RESOURCE}
+      CLAUDE_AGENT_WORKSPACE: /tmp/claude-agent-workspace
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '1'
+        memory: 2Gi
+    kind: hosted
+    name: claude-resilient-long-running-workflow-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  claude-steerable-long-running-agent-responses:
+    project: ./claude/steerable_long_running_agent
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      CLAUDE_MODEL_DEPLOYMENT_NAME: ${CLAUDE_MODEL_DEPLOYMENT_NAME}
+      ANTHROPIC_FOUNDRY_RESOURCE: ${ANTHROPIC_FOUNDRY_RESOURCE}
+      CLAUDE_AGENT_WORKSPACE: /tmp/claude-agent-workspace
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '1'
+        memory: 2Gi
+    kind: hosted
+    name: claude-steerable-long-running-agent-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
+  claude-custom-storage-responses:
+    project: ./claude/custom_storage
+    host: azure.ai.agent
+    language: python
+    uses:
+    - foundry-project
+    env:
+      CLAUDE_MODEL_DEPLOYMENT_NAME: ${CLAUDE_MODEL_DEPLOYMENT_NAME}
+      ANTHROPIC_FOUNDRY_RESOURCE: ${ANTHROPIC_FOUNDRY_RESOURCE}
+      CLAUDE_AGENT_WORKSPACE: /tmp/claude-agent-workspace
+      USE_FOUNDRY_STORAGE: "true"
+    codeConfiguration:
+      dependencyResolution: remote_build
+      entryPoint: main.py
+      runtime: python_3_13
+    container:
+      resources:
+        cpu: '1'
+        memory: 2Gi
+    kind: hosted
+    name: claude-custom-storage-responses
+    protocols:
+    - protocol: responses
+      version: 2.0.0
   foundry-project:
     host: azure.ai.project
     endpoint: ${AZURE_AI_PROJECT_ENDPOINT}

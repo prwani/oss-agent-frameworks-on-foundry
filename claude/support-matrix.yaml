@@ -1,0 +1,84 @@
+schema_version: 1
+protocol: responses
+protocol_version: 2.0.0
+hosting:
+  package: azure-ai-agentserver-responses
+  server: ResponsesAgentServerHost
+backend:
+  mechanism: CLAUDE_CODE_USE_FOUNDRY
+  endpoint: https://<resource>.services.ai.azure.com/anthropic/v1
+  token_scope: https://cognitiveservices.azure.com/.default
+  note: >-
+    The Claude Agent SDK drives the bundled Claude Code CLI as a subprocess and
+    can only target Anthropic Claude models. It cannot be pointed at the GPT
+    deployment used by the other framework columns, so this column requires a
+    separate Claude deployment in Microsoft Foundry.
+common_required_resources:
+  - Microsoft Foundry resource with a Claude model deployment
+  - Entra identity with Cognitive Services access, or a Foundry API key
+samples:
+  basic:
+    support: native
+    required_resources: []
+  tools:
+    support: native
+    required_resources: []
+    notes: Custom tools run in-process via create_sdk_mcp_server; can_use_tool gates approvals.
+  mcp:
+    support: native
+    required_resources: [remote MCP server, MCP bearer token]
+    notes: MCP is first-class; remote servers are declared directly in ClaudeAgentOptions.
+  foundry_toolbox:
+    support: adapter
+    required_resources: [preconfigured Foundry Toolbox]
+    limitation: The Claude Agent SDK has no Foundry Toolbox client.
+    deployment_alternative: Bridge toolbox tools into Claude as an in-process MCP tool.
+  workflows:
+    support: adapter
+    required_resources: []
+    limitation: There is no explicit graph primitive; stages are modelled as subagents.
+    deployment_alternative: Define named subagents and instruct the lead agent to delegate in order.
+  files:
+    support: native
+    required_resources: [mounted or local data directory]
+    notes: Read, Glob, and Grep are built into the CLI; write and execute tools are withheld.
+  observability:
+    support: native
+    required_resources: [Application Insights or an OTLP collector]
+    notes: Instruments both the Python host and the Claude Code subprocess.
+  azure_search_rag:
+    support: adapter
+    required_resources: [Azure AI Search service, existing populated index]
+    limitation: No built-in Azure AI Search integration.
+    deployment_alternative: Publish retrieval as an in-process MCP tool.
+  foundry_memory:
+    support: adapter
+    maturity: preview
+    required_resources: [precreated Foundry Memory store]
+    limitation: No memory-provider lifecycle; recall and capture are driven explicitly by the handler.
+  monty_codeact:
+    support: adapter
+    required_resources: []
+    limitation: The built-in Bash tool executes against the real container filesystem.
+    deployment_alternative: Disable built-in execution tools and expose a bounded pydantic-monty sandbox.
+  foundry_toolbox_mcp_skills:
+    support: adapter
+    maturity: preview
+    required_resources: [Foundry Toolbox exposing SEP-2640 skill resources]
+    limitation: Toolbox skills are loaded through an MCP tool and a system index rather than the SDK's native skills option.
+  resilient_long_running_workflow:
+    support: native
+    required_resources: []
+    notes: Session transcripts are written to disk and replayed by id with resume.
+    hosted_resources: [durable volume or an external SessionStore]
+  steerable_long_running_agent:
+    support: native
+    required_resources: []
+    notes: ClaudeSDKClient keeps a duplex session open, so interrupt() can preempt work in flight.
+  custom_storage:
+    support: alternative
+    required_resources: [writable SQLite path locally, Foundry State Store when hosted]
+    notes: >-
+      The SessionStore protocol mirrors transcripts to external storage; the CLI
+      still writes its primary copy to local disk, so this augments rather than
+      replaces the built-in store.

@@ -1,0 +1,9 @@
+claude-agent-sdk>=0.2.162
+azure-ai-agentserver-responses>=1.0.0
+azure-ai-projects>=2.6.1
+azure-identity>=1.25.0
+azure-monitor-opentelemetry>=1.6.0
+azure-search-documents>=11.5.0
+opentelemetry-exporter-otlp-proto-http>=1.30.0
+pydantic-monty>=0.1.0
+python-dotenv>=1.1.0

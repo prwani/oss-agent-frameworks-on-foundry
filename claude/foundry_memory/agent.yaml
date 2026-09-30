@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/microsoft/AgentSchema/refs/heads/main/schemas/v1.0/ContainerAgent.yaml
+kind: hosted
+name: claude-foundry-memory-responses
+protocols:
+  - protocol: responses
+    version: 2.0.0
+resources:
+  cpu: "1"
+  memory: "2Gi"
+environment_variables:
+  - name: CLAUDE_MODEL_DEPLOYMENT_NAME
+    value: ${CLAUDE_MODEL_DEPLOYMENT_NAME}
+  - name: ANTHROPIC_FOUNDRY_RESOURCE
+    value: ${ANTHROPIC_FOUNDRY_RESOURCE}
+  - name: FOUNDRY_PROJECT_ENDPOINT
+    value: ${FOUNDRY_PROJECT_ENDPOINT}
+  - name: MEMORY_STORE_NAME
+    value: ${MEMORY_STORE_NAME}
+  - name: MEMORY_SCOPE
+    value: ${MEMORY_SCOPE}

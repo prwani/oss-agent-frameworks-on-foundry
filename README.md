@@ -5,30 +5,38 @@ Equivalent Responses API hosted-agent samples for:
 - [`langchain/`](langchain/)
 - [`langgraph/`](langgraph/)
 - [`crewai/`](crewai/)
+- [`claude/`](claude/) (Claude Agent SDK)
 
 ## Sample matrix
 
-| Agent scenario | Microsoft Agent Framework | LangChain | LangGraph | CrewAI |
-|---|:---:|:---:|:---:|:---:|
-| Basic Responses | ✅ | ✅ | ✅ | ✅ |
-| Tools | ✅ | ✅ | ✅ | ✅ |
-| MCP | ✅ | ✅ | ✅ | ✅ |
-| Foundry Toolbox | ✅ | ✅ | ✅ | ✅ |
-| Workflows | ✅ | ✅ | ✅ | ✅ |
-| Files | ✅ | ✅ | ✅ | ✅ |
-| Observability | ✅ | ✅ | ✅ | ✅ |
-| Azure AI Search RAG | ✅ | ✅ | ✅ | ✅ |
-| Foundry Memory | ✅ | ✅ | ✅ | ✅ |
-| Monty CodeAct | ✅ | ✅ | ✅ | ✅ |
-| Foundry Toolbox MCP Skills | ✅ | ✅ | ✅ | ✅ |
-| Resilient Long-Running Workflow | ✅ | ✅ | ✅ | ✅ |
-| Steerable Long-Running Agent | ✅ | ✅ | ✅ | ✅ |
-| Custom Storage | ✅ | ✅ | ✅ | ✅ |
+| Agent scenario | Microsoft Agent Framework | LangChain | LangGraph | CrewAI | Claude Agent SDK |
+|---|:---:|:---:|:---:|:---:|:---:|
+| Basic Responses | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Tools | ✅ | ✅ | ✅ | ✅ | ✅ |
+| MCP | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Foundry Toolbox | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Workflows | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Files | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Observability | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Azure AI Search RAG | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Foundry Memory | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Monty CodeAct | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Foundry Toolbox MCP Skills | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Resilient Long-Running Workflow | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Steerable Long-Running Agent | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Custom Storage | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 ✅ means that the repository contains an implementation of the scenario.
 It does not imply full feature parity or a successful result for every runtime
 path. See [`TEST_RESULTS.md`](TEST_RESULTS.md) for validated behavior and known
 limitations.
+
+The Claude Agent SDK column is **built but not yet validated against a live
+Claude deployment**, and it differs from the other columns in an important way:
+it can only run Anthropic Claude models, so it requires its own Claude
+deployment in Foundry rather than the shared model deployment. See
+[`claude/README.md`](claude/README.md) and
+[`claude/support-matrix.yaml`](claude/support-matrix.yaml) for details.
 
 The upstream Microsoft Agent Framework repository is retained as the
 [`ms-agent-framework/`](ms-agent-framework/) Git submodule. Clone this

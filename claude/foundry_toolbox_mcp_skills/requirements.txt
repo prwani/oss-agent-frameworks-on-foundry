@@ -1,0 +1,5 @@
+claude-agent-sdk>=0.2.162
+azure-ai-agentserver-responses>=1.0.0
+azure-identity>=1.25.0
+python-dotenv>=1.1.0
+azure-ai-projects>=2.6.1

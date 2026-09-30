@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/microsoft/AgentSchema/refs/heads/main/schemas/v1.0/ContainerAgent.yaml
+kind: hosted
+name: claude-mcp-responses
+protocols:
+  - protocol: responses
+    version: 2.0.0
+resources:
+  cpu: "1"
+  memory: "2Gi"
+environment_variables:
+  - name: CLAUDE_MODEL_DEPLOYMENT_NAME
+    value: ${CLAUDE_MODEL_DEPLOYMENT_NAME}
+  - name: ANTHROPIC_FOUNDRY_RESOURCE
+    value: ${ANTHROPIC_FOUNDRY_RESOURCE}
+  - name: MCP_SERVER_URL
+    value: ${MCP_SERVER_URL}
+  - name: MCP_AUTH_TOKEN
+    value: ${MCP_AUTH_TOKEN}
